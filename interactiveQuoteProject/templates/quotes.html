@@ -1,0 +1,21 @@
+{% extends 'interactiveQuotesBase.html' %}
+
+{% block main %}
+
+<h1> Add your quotes </h1>
+
+<div class="container">
+    <form action="/insertinteractiveQuotes" method="post">
+        <div class="form-group">
+          <label for="author">Quote Author</label>
+          <input type="text" class="form-control" id="author" name="author" placeholder="Enter quotes author here..">
+        </div>
+        <div class="form-group">
+          <label for="quotes">Quotes</label>
+          <textarea class="form-control" id="quotes" name="quotes" placeholder="Enter quotes here.." rows="5"></textarea>
+        </div>
+        <button type="submit" class="btn btb-lg btn-primary btn-block">Submit Your Quotes</button>
+      </form>
+</div>
+
+{% endblock main %}

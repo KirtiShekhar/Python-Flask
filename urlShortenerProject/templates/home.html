@@ -1,0 +1,30 @@
+{% extends 'urlShortenerBase.html' %}
+
+{% block main %}
+
+<h1>URL Shortener</h1>
+
+<form action="/urlshort" method="POST">
+    <label for="url">Website URL</label>
+    <input type="url" name="url" placeholder="enter any url" required><br>
+    <label for="code">Short Name</label>
+    <input type="text" name="code" placeholder="enter the short url" required><br>
+    <input type="submit" name="ShortURL" value="Short URL">
+</form>
+
+{% for message in get_flashed_messages() %}
+<h1> {{message}} </h1>
+{% endfor %}
+
+{% if usersession %}
+<h2> Short URLS you have saved </h2>
+<ul>
+    {% for savedsession in usersession %}
+    <a href="{{ url_for('shortNamesUrls',code=savedsession)}}">
+        <li>{{ savedsession }}</li>
+    </a>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% endblock main %}

@@ -1,0 +1,18 @@
+{% extends 'blogPostBase.html' %}
+
+{% block main %}
+
+<h1 id="header1">Blogging Project</h1>
+
+<hr>
+<hr>
+<hr>
+
+<h1 id="header1">Edit Existing Blog Post</h1>
+<form action="/edit/{{postBlogPostEdit.blogPostId}}/" method="POST">
+    <label>blogPostContent</label><input type="text" name="blogPostContent" value="{{postBlogPostEdit.blogPostContent}}" id="blogPostContent"><br><br><br>
+    <label>blogPostAuthor</label><input type="text" name="blogPostAuthor" value="{{postBlogPostEdit.blogPostAuthor}}" id="blogPostAuthor"><br><br><br>
+    <input type="submit" name="addBlogPost" id="addBlogPost" value="update Blog Post" class="btn btn-success"><br><br><br>
+</form>
+
+{% endblock main %}

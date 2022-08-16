@@ -1,0 +1,45 @@
+{% extends 'interactiveQuotesBase.html' %}
+
+{% block main %}
+
+<nav style="margin-top: 25px;margin-left:45px">
+    <a class="btn btn-primary" href="{{url_for('quotes')}}">Add a quotes</a>
+</nav>
+<br>
+
+<h1>Interactive Quotes</h1>
+
+<div class="container theme-showcase" role="main">
+    <div class="jumbotron" style="color: #fff; background-color: orange;">
+        <h1>Favourite Quotes</h1>    
+    </div>
+
+
+    <div style="color: #fff; background-color: blue;">
+        <h1>Quotes Author are : </h1>
+
+        {% for interactiveFavouriteQuotes in interactiveFavouriteQuotes %}
+
+        <h5>{{interactiveFavouriteQuotes.interactiveQuotesId}}).{{ interactiveFavouriteQuotes.interactiveQuotesAuthor }}</h5>
+
+        {% endfor %}
+
+    </div>
+
+    <div style="color: #fff; background-color: green;">
+        <h1>Quotes are : </h1>
+
+        {% for interactiveFavouriteQuotes in interactiveFavouriteQuotes %}
+
+        <h5>{{interactiveFavouriteQuotes.interactiveQuotesId}}).{{ interactiveFavouriteQuotes.interactiveQuotesQuotes }}</h5>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+
+
+
+{% endblock main %}

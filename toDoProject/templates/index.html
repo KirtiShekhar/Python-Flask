@@ -1,0 +1,32 @@
+{% extends 'toDoBase.html' %}
+
+{% block main %}
+
+<h1 id="header1">To Do Task Project</h1>
+
+<hr>
+<hr>
+
+<form action="/task" method="POST">
+    <label>taskName</label><input type="text" name="taskName" id="taskName"><br><br><br>
+    <label>taskStartDateTime</label><input type="time" name="taskStartDateTime" id="taskStartDateTime"><br><br><br>
+    <label>taskEndDateTime</label><input type="time" name="taskEndDateTime" id="taskEndDateTime"><br><br><br>
+    <input type="submit" name="addTask" id="addTask" value="add ToDo Task" class="btn btn-success"><br><br><br>
+</form>
+
+<hr>
+<hr>
+
+<h1 id="header1">All To Do Tasks</h1>
+
+{% for ToDoTasksList in ToDoTasksList %}
+<h5 id="header5">Task Id : {{ToDoTasksList.taskId}} </h5>
+<h5 id="header5">Task Name : {{ToDoTasksList.taskName}} </h5>
+<h5 id="header5">Task StartDateTime : {{ToDoTasksList.taskStartDateTime}} </h5>
+<h5 id="header5">Task EndDateTime : {{ToDoTasksList.taskEndDateTime}} </h5>
+<h5 id="header5"><a href="/delete/{{ToDoTasksList.taskId}}/" class="btn btn-danger">Delete Task</a></h5>
+<h5></h5>
+
+{% endfor %}
+
+{% endblock main %}
